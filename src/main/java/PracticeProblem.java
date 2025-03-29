@@ -68,60 +68,23 @@ public class PracticeProblem {
 	}
 
 	public static String leastSwaps(double[] nums){
-		double[] nums1 = new double [nums.length];
-		double[] nums2 = new double [nums.length];
-		double[] nums3 = new double [nums.length];
-		for (int i = 0; i < nums.length; i++){
-			nums1[i] = nums[i];
-			nums2[i] = nums[i];
-			nums3[i] = nums[i];
+		double[] bubbleArr = new double [nums.length];
+		double[] selectionArr = new double [nums.length];;
+		double[] insertionArr = new double [nums.length];
+		for (int i = 0; i < nums.length; i ++){
+			bubbleArr[i] = nums[i];
+			selectionArr[i] = nums[i];
+			insertionArr[i] = nums[i];
 		}
+		int[] bubbleResult = bubbleSort(bubbleArr);
+		int[] selectionResult = selectionSort(selectionArr);
+		int[] insertionResult = insertionSort(insertionArr);
 
-		int bubbleSwapCount = 0;
-		boolean swapped = true;
-		for (int i = 0; i < nums1.length - 1 && swapped; i++){
-			swapped = false;
-			for (int j = 0; j < nums1.length - 1 - i; j++){
-				if(nums1[j] > nums1[j + 1]){
-					double temp = nums1[j];
-					nums1[j] = nums1[j+1];
-					nums1[j+1] = temp;
-					swapped = true;
-					bubbleSwapCount++;
-				}
-			}
-		}
 
-		int selectionSwapCount = 0;
-		for(int i = 0; i < nums2.length - 1; i++){
-			int smallestIndex = i;
-			for (int j = i + 1; j < nums2.length; j++){
-				if (nums2[j] < nums2[smallestIndex]){
-					smallestIndex = j;
-				}
-			}
-				double temp = nums2[smallestIndex];
-				nums2[smallestIndex] = nums2[i];
-				nums2[i] = temp;
-				selectionSwapCount++;
-		}
-		
-		int insertionSwapCount = 0;
-		for (int i = 1; i < nums3.length; i++){
-			double key = nums3[i];
-			int index = i - 1;
-			while(index >= 0 && nums3[index] > key){
-				nums3[index + 1] = nums3[index];
-				index--;
-			}
-			nums3[index + 1] = key;
-			insertionSwapCount++;
-		}
-
-		if (bubbleSwapCount <= selectionSwapCount && bubbleSwapCount <= insertionSwapCount){
+		if ( bubbleResult[0] <=  selectionResult[0] &&  bubbleResult[0] <= insertionResult[0]){
 			return "Bubble";
 		}
-		else if (selectionSwapCount >= insertionSwapCount){
+		else if (selectionResult[0] >= insertionResult[0]){
 			return "Insertion";
 		}
 		else{
@@ -130,64 +93,27 @@ public class PracticeProblem {
 	}
 
 	public static String leastIterations(double[] nums){
-		double[] nums1 = new double [nums.length];
-		double[] nums2 = new double [nums.length];
-		double[] nums3 = new double [nums.length];
-		for (int i = 0; i < nums.length; i++){
-			nums1[i] = nums[i];
-			nums2[i] = nums[i];
-			nums3[i] = nums[i];
+		double[] bubbleArr = new double [nums.length];
+		double[] selectionArr = new double [nums.length];;
+		double[] insertionArr = new double [nums.length];
+		for (int i = 0; i < nums.length; i ++){
+			bubbleArr[i] = nums[i];
+			selectionArr[i] = nums[i];
+			insertionArr[i] = nums[i];
 		}
+		int[] bubbleResult = bubbleSort(bubbleArr);
+		int[] selectionResult = selectionSort(selectionArr);
+		int[] insertionResult = insertionSort(insertionArr);
 
-		int bubbleIterationsCount = 0;
-		boolean swapped = true;
-		for (int i = 0; i < nums1.length - 1 && swapped; i++){
-			swapped = false;
-			for (int j = 0; j < nums1.length - 1 - i; j++){
-				bubbleIterationsCount++;
-				if (nums1[j] > nums1[j+1]){
-					double temp = nums1[j];
-					nums1[j] = nums1[j+1];
-					nums1[j+1] = temp;
-					swapped = true;
-				}
-			}
-		}
 
-		int selectionIterationsCount = 0;
-		for (int i = 0; i < nums2.length - 1; i++){
-			int smallestIndex = i;
-			for (int j = i + 1; j < nums2.length; j++){
-				selectionIterationsCount++;
-				if (nums2[j] < nums2[smallestIndex]){
-					smallestIndex = j;
-				}
-			}
-			double temp = nums2[smallestIndex];
-			nums2[smallestIndex] = nums2[i];
-			nums2[i] = temp;
-		}
-
-		int insertionIterationsCount = 0;
-		for (int i = 1; i < nums3.length; i++){
-			double key = nums3[i];
-			int index = i - 1;
-			while (index >= 0 && nums3[index] > key){
-				insertionIterationsCount++;
-				nums3[index + 1] = nums3[index];
-				index--;
-			}
-			nums3[index + 1] = key;
-		}
-		if (bubbleIterationsCount <= selectionIterationsCount && bubbleIterationsCount <= insertionIterationsCount){
+		if ( bubbleResult[1] <=  selectionResult[1] &&  bubbleResult[1] <= insertionResult[1]){
 			return "Bubble";
 		}
-		else if (insertionIterationsCount <= selectionIterationsCount){
+		else if (selectionResult[1] >= insertionResult[1]){
 			return "Insertion";
 		}
 		else{
 			return "Selection";
 		}
 	}
-	
 }
