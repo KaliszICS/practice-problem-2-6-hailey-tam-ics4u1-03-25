@@ -69,9 +69,9 @@ public class PracticeProblem {
 
 	public static String leastSwaps(double[] nums){
 		double[] bubbleArr = new double [nums.length];
-		double[] selectionArr = new double [nums.length];;
+		double[] selectionArr = new double [nums.length];
 		double[] insertionArr = new double [nums.length];
-		for (int i = 0; i < nums.length; i ++){
+		for (int i = 0; i < nums.length; i++){
 			bubbleArr[i] = nums[i];
 			selectionArr[i] = nums[i];
 			insertionArr[i] = nums[i];
@@ -94,9 +94,9 @@ public class PracticeProblem {
 
 	public static String leastIterations(double[] nums){
 		double[] bubbleArr = new double [nums.length];
-		double[] selectionArr = new double [nums.length];;
+		double[] selectionArr = new double [nums.length];
 		double[] insertionArr = new double [nums.length];
-		for (int i = 0; i < nums.length; i ++){
+		for (int i = 0; i < nums.length; i++){
 			bubbleArr[i] = nums[i];
 			selectionArr[i] = nums[i];
 			insertionArr[i] = nums[i];
